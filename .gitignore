@@ -1,0 +1,30 @@
+# created by virtualenv automatically
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# Environment variables
+.env
+
+# ClickHouse / DB files
+*.db
+*.sqlite3
