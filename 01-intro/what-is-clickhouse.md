@@ -27,3 +27,45 @@ Here are some prominent features of ClickHouse, which are beneficial for a wide 
 - ClickHouse is not built for performing a large number of mutations. Update and Delete operations are asynchronous, and there is no support for transactions.
 - ClickHouse is not built for handling a large number of parallel connections, therefore, beyond a certain scale, it should be used as a warehouse in warehouse-mart architecture with application and user-facing queries going to the data marts
 
+### Column-Oriented
+- Data in ClickHouse is stored in columns instead of rows, bringing at least two benefits:
+
+- Every column can be sorted in a separate file; hence, stronger compression happens on each column and the whole table.
+In range queries common in analytical processing, the system can access and process data easier since data is sorted in some columns (i.e., columns defined as sort keys). Additionally, it can parallelize processes on multi-cores while loading massive columns.
+
+<p align="center">
+  <img src="../images/co.gif" width="600"/>
+</p>
+
+<p align="center">
+  <img src="../images/cd.webp" width="600"/>
+</p>
+
+### Note
+Note: It should not get mistaken with Wide-Column databases like Cassandra as they store data in rows but enable you to denormalize intensive data in a table with many columns leading to a No-SQL structure.
+
+###Data Compression
+Thanks to compression algorithms (zstd and LZ4), data occupies much less storage, even more than 20x smaller! You can study some of the benchmarks on ClickHouse and other databases storage here.
+
+<p align="center">
+  <img src="../images/dca.webp" width="600"/>
+</p>
+
+### Scalability
+ClickHouse scales well both vertically and horizontally. It can be scaled by adding extra replicas and extra shards to process queries in a distributed way. ClickHouse supports multi-master asynchronous replication and can be deployed across multiple data centers. All nodes are equal, which allows for avoiding having single points of failure.
+
+### Weaknesses
+To mention some:
+
+- Lack of full-fledged UPDATE/DELETE implementation: ClickHouse is unsuited for modification and mutations. So you'll come across poor performance regarding those kinds of queries.
+- OLTP queries like pointy ones would not make you happy since ClickHouse is easily outperformed by traditional RDBMSs like MySQL with those queries.
+
+### Rivals and Alternatives
+To name a few:
+
+- Apache Druid
+- ElasticSearch
+- SingleStore
+- Snowflake
+- TimescaleDB
+

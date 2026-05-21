@@ -46,6 +46,12 @@ This project is for learning and practicing:
 ## Useful papers about ClickHouse on the Internet 
 - [ClickHouse Basic Tutorial: An Introduction](https://dev.to/hoptical/clickhouse-basic-tutorial-an-introduction-52il)
 - [How Clickhouse primary key works and how to choose it](https://medium.com/datadenys/how-clickhouse-primary-key-works-and-how-to-choose-it-4aaf3bf4a8b9)
+
+## Benchmarks
+
+- [ClickBench — a Benchmark For Analytical DBMS](https://benchmark.clickhouse.com/)
+- [RTABench a Benchmark For Real Time Analytics](https://rtabench.com/)
+
 ## Next Steps
 
 You can extend this project with:
