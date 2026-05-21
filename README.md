@@ -51,6 +51,7 @@ This project is for learning and practicing:
 
 - [ClickBench — a Benchmark For Analytical DBMS](https://benchmark.clickhouse.com/)
 - [RTABench a Benchmark For Real Time Analytics](https://rtabench.com/)
+- [ClickHouse® for Time Series Scalability Benchmarks](https://altinitydb.medium.com/clickhouse-for-time-series-scalability-benchmarks-e181132a895b)
 
 ## Next Steps
 
