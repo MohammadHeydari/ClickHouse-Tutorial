@@ -28,6 +28,112 @@ docker run -d --name clickhouse-server \
 docker exec -it clickhouse-server clickhouse-client
 ```
 
+## Connect to ClickHouse (From Windows to Linux Server)
+This section explains how to connect from a Windows machine (Python) to a ClickHouse server running in Docker on a Linux VM.
+
+```
+docker run -d \
+  --name clickhouse-server \
+  -p 8123:8123 \
+  -p 9000:9000 \
+  -v clickhouse_data:/var/lib/clickhouse \
+  clickhouse/clickhouse-server:24.1
+```
+
+### Verify ClickHouse is Running
+
+```
+docker ps
+```
+
+You should see:
+
+```
+clickhouse-server   Up ...
+```
+
+### Check Port 9000 (Native Protocol)
+
+```
+ss -ltnp | grep 9000
+```
+
+Expected:
+
+```
+0.0.0.0:9000
+```
+
+### Get Linux VM IP Address
+
+```
+ip a
+```
+
+## Python Test Script (Windows)
+
+Install driver:
+
+```
+pip install clickhouse-driver
+```
+
+### Create test_clickhouse.py
+
+```
+from clickhouse_driver import Client
+
+# your linux vm ip address
+HOST = "YOUR-LINUX-IP-HERE"
+
+client = Client(
+    host=HOST,        # http port
+    port=9000,        # Native port
+    user='default',
+    password=''
+)
+
+print("Connected to ClickHouse!")
+
+
+result = client.execute("SELECT version()")
+print("Version:", result)
+
+client.execute("""
+CREATE TABLE IF NOT EXISTS test_table
+(
+    id Int32,
+    name String
+)
+ENGINE = MergeTree()
+ORDER BY id
+""")
+
+client.execute("INSERT INTO test_table VALUES", [
+    (1, 'Ali'),
+    (2, 'Reza'),
+    (3, 'Mohammad Ehsan')
+])
+
+rows = client.execute("SELECT * FROM test_table")
+print("Data:", rows)
+```
+
+### Run Test
+
+```
+python test_clickhouse.py
+```
+### Expected Output:
+
+```
+
+Connected to ClickHouse!
+Version: [('24.1.8.22',)]
+Data: [(1, 'Ali'), (2, 'Reza')]
+
+```
+
 ## Purpose
 
 This project is for learning and practicing:
