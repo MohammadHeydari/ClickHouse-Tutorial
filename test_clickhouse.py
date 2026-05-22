@@ -1,7 +1,7 @@
 from clickhouse_driver import Client
 
 # your linux vm ip address
-HOST = "192.168.224.128"
+HOST = "YOUR-LINUX-IP-HERE"
 
 client = Client(
     host=HOST,        # http port
