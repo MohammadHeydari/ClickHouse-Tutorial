@@ -125,7 +125,9 @@ CREATE TABLE research
     research_id UInt32, 
     name String, created_date Date
 ) 
-ENGINE = MergeTree ORDER BY 
+ENGINE = MergeTree 
+
+ORDER BY 
 (
     created_date, 
     research_id
