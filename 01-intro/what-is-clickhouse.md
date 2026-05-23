@@ -22,10 +22,15 @@ Here are some prominent features of ClickHouse, which are beneficial for a wide 
 - ClickHouse is available both as an open-source product and as a managed cloud-based offering on AWS, Azure, and GCP
 - ClickHouse is a multi-node database system, which allows for horizontal scaling. It can execute parts of queries on multiple nodes for improved performance.
 - The use of columnar storage in ClickHouse, together with Vectorized query engine enhance the efficiency of analytical queries
+- ClickHouse is a very fast OLAP database system, optimized for reporting queries that perform aggregations on a large amount of data.
 
 ### Is not built for
 - ClickHouse is not built for performing a large number of mutations. Update and Delete operations are asynchronous, and there is no support for transactions.
 - ClickHouse is not built for handling a large number of parallel connections, therefore, beyond a certain scale, it should be used as a warehouse in warehouse-mart architecture with application and user-facing queries going to the data marts
+
+### Update and Delete 
+
+- ClickHouse Update and Delete operations are asynchronous, and there is no support for transactions
 
 ### Column-Oriented
 - Data in ClickHouse is stored in columns instead of rows, bringing at least two benefits:
