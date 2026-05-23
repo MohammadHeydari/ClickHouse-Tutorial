@@ -70,3 +70,10 @@ This approach is simpler, safer, and more scalable.
 <p align="center">
   <img src="../images/shard.png" width="600"/>
 </p>
+
+## Note 
+
+Remember: 
+
+- Shard : Partition
+- Distributed Table : Router
