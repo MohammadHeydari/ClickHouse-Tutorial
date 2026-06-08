@@ -140,3 +140,4 @@ Then point any MCP-compatible LLM client (Claude Desktop, LibreChat, etc.) at th
 - [LibreChat — GitHub](https://github.com/danny-avila/LibreChat)
 - [Model Context Protocol — Anthropic](https://modelcontextprotocol.io)
 - [ClickHouse Cloud](https://clickhouse.com/cloud)
+- [Building a Full-Stack Agentic AI Data Platform on ClickHouse: A Complete Architecture Guide](https://dev.to/rakeshtherani/building-a-full-stack-agentic-ai-data-platform-on-clickhouse-a-complete-architecture-guide-4cf)
